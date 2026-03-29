@@ -1,0 +1,565 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UNTU Links</title>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+
+  <style>
+    :root{
+      --bg:#090b10;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.72);
+      --card:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --shadow:0 20px 60px rgba(0,0,0,.45);
+      --shadowHover:0 24px 70px rgba(0,0,0,.58);
+    }
+
+
+    *{box-sizing:border-box}
+
+
+    html,body{
+      margin:0;
+      min-height:100%;
+    }
+
+
+    body{
+      font-family:"Montserrat",sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      overflow-x:hidden;
+      position:relative;
+    }
+
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+
+    /* ===== GLOBAL BACKGROUND ===== */
+    .site-bg{
+      position:fixed;
+      inset:0;
+      z-index:-5;
+      overflow:hidden;
+      background:
+        radial-gradient(900px 700px at 15% 15%, rgba(255,255,255,.06), transparent 60%),
+        radial-gradient(700px 700px at 85% 10%, rgba(255,255,255,.04), transparent 58%),
+        linear-gradient(180deg, rgba(8,10,14,.72), rgba(8,10,14,.84));
+    }
+
+
+    .site-bg::before{
+      content:"";
+      position:absolute;
+      inset:-260px;
+      background-image:url("https://res.cloudinary.com/da4ctmwz5/image/upload/v1768578525/Space_pattern_epsv7v.jpg");
+      background-size:cover;
+      background-position:center;
+      filter:blur(34px) saturate(1.02) brightness(.9);
+      opacity:.46;
+      transform:translate3d(0,0,0) scale(1.18);
+      animation:bgFloat 22s ease-in-out infinite alternate;
+      will-change:transform;
+    }
+
+
+    .site-bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(8,10,14,.28), rgba(8,10,14,.5)),
+        radial-gradient(1200px 900px at 50% -10%, rgba(255,255,255,.05), transparent 60%);
+      pointer-events:none;
+    }
+
+
+    @keyframes bgFloat{
+      0%{
+        transform:translate3d(-24px,-18px,0) scale(1.18);
+      }
+      100%{
+        transform:translate3d(24px,18px,0) scale(1.24);
+      }
+    }
+
+
+    /* ===== LAYOUT ===== */
+    .wrapper{
+      width:min(540px, calc(100% - 28px));
+      margin:0 auto;
+      padding:26px 0 60px;
+      position:relative;
+      z-index:2;
+    }
+
+
+    /* ===== HEADER ===== */
+    .header{
+      text-align:center;
+      margin-bottom:20px;
+    }
+
+
+    .logo{
+      width:84px;
+      height:auto;
+      display:block;
+      margin:0 auto 14px;
+      filter:drop-shadow(0 10px 24px rgba(0,0,0,.35));
+    }
+
+
+    .title{
+      font-size:20px;
+      font-weight:900;
+      letter-spacing:.02em;
+      margin-bottom:8px;
+    }
+
+
+    .subtitle{
+      font-size:12px;
+      line-height:1.6;
+      color:var(--muted);
+    }
+
+
+    /* ===== HERO ===== */
+    .hero{
+      position:relative;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.05);
+      box-shadow:var(--shadow);
+      margin-bottom:18px;
+      backdrop-filter:blur(10px);
+    }
+
+
+.hero img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain; 
+}
+
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(8,10,14,.08), rgba(8,10,14,.38)),
+        radial-gradient(700px 300px at 50% 0%, rgba(255,255,255,.08), transparent 60%);
+      pointer-events:none;
+    }
+
+
+    /* ===== LINKS ===== */
+    .links{
+      display:grid;
+      gap:14px;
+    }
+
+
+    .card-link{
+      display:block;
+      perspective:900px;
+    }
+
+
+    .card{
+      position:relative;
+      overflow:hidden;
+      border-radius:22px;
+      border:1px solid var(--stroke);
+      background:var(--card);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      box-shadow:var(--shadow);
+      transform:translateY(18px);
+      opacity:0;
+      animation:fadeUp .65s ease forwards;
+      transition:
+        transform .28s ease,
+        box-shadow .28s ease,
+        border-color .28s ease;
+    }
+
+
+    .card:hover{
+      box-shadow:var(--shadowHover);
+      border-color:rgba(255,255,255,.22);
+    }
+
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:var(--card-bg);
+      background-size:cover;
+      background-position:center;
+      opacity:.26;
+      filter:saturate(1.04) contrast(1.02);
+      transform:scale(1.04);
+    }
+
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(
+          340px circle at var(--mx,50%) var(--my,50%),
+          rgba(255,255,255,.14),
+          transparent 42%
+        ),
+        linear-gradient(180deg, rgba(8,10,14,.18), rgba(8,10,14,.34));
+      opacity:.96;
+      pointer-events:none;
+    }
+
+
+    .content{
+      position:relative;
+      z-index:2;
+      padding:18px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+
+    .text{
+      font-size:14px;
+      line-height:1.45;
+      font-weight:700;
+      color:rgba(255,255,255,.96);
+    }
+
+
+    .arrow{
+      flex:0 0 auto;
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      color:rgba(255,255,255,.92);
+      font-size:14px;
+    }
+
+
+    /* ===== SOCIALS ===== */
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top:22px;
+      flex-wrap:wrap;
+    }
+
+
+    .social{
+      min-width:46px;
+      height:46px;
+      padding:0 14px;
+      border-radius:14px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+      font-weight:700;
+      color:rgba(255,255,255,.92);
+      backdrop-filter:blur(12px);
+      transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+      box-shadow:0 14px 34px rgba(0,0,0,.25);
+    }
+
+
+    .social:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,.22);
+      box-shadow:0 18px 40px rgba(0,0,0,.35);
+    }
+
+
+    @keyframes fadeUp{
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+
+    @media (max-width:640px){
+      .wrapper{
+        width:min(540px, calc(100% - 20px));
+        padding-top:20px;
+      }
+
+
+      .content{
+        padding:16px;
+      }
+
+
+      .text{
+        font-size:13.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="site-bg"></div>
+
+
+  <div class="wrapper">
+
+
+    <div class="header">
+      <img class="logo" src="https://res.cloudinary.com/da4ctmwz5/image/upload/v1768590482/UNTU_logo_png_eleuvz.png" alt="UNTU logo">
+      <div class="title">UNTU Links</div>
+      <div class="subtitle">
+        Non-governmental organisation UNTU
+        
+      </div>
+    </div>
+
+
+    <div class="hero">
+      <img src="https://res.cloudinary.com/da4ctmwz5/image/upload/v1771764958/untu_dragon_og_mc3s20.png" alt="UNTU main image">
+    </div>
+
+
+    <div class="links" id="links">
+
+
+      <a class="card-link" href="https://untu.ngo" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="content">
+            <div class="text">UNTU Website</div>
+            <div class="arrow">↗</div>
+          </div>
+        </div>
+      </a>
+
+
+      <a class="card-link" href="https://www.youtube.com/@untuwellnessdailychallenge" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="content">
+            <div class="text">UNTU Daily Wellness Challenge Movement YouTube channel</div>
+            <div class="arrow">↗</div>
+          </div>
+        </div>
+      </a>
+
+
+      <a class="card-link" href="https://youtube.com/playlist?list=PLD_bCNhFJdl7CGHa0XKIW1ezgnT-ByFFt&si=xahL0oPi60X4c2Rf" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="content">
+            <div class="text">Think Critically Podcast</div>
+            <div class="arrow">↗</div>
+          </div>
+        </div>
+      </a>
+
+
+      <a class="card-link" href="https://project-asset.eu" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="content">
+            <div class="text">Asset Project Website</div>
+            <div class="arrow">↗</div>
+          </div>
+        </div>
+      </a>
+
+
+      <a class="card-link" href="https://www.lm.gov.lv/en/media/1339/download" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="content">
+            <div class="text">Ieteikumi ar dzimumu saistītas vardarbības novēršanai un tās risku pārvaldībai</div>
+            <div class="arrow">↗</div>
+          </div>
+        </div>
+      </a>
+
+
+      <a class="card-link" href="https://webgate.ec.europa.eu/erasmus-esc/index/" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="content">
+            <div class="text">Erasmus+ and European Solidarity Corps</div>
+            <div class="arrow">↗</div>
+          </div>
+        </div>
+      </a>
+
+
+      <a class="card-link" href="https://jaunatne.gov.lv" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="content">
+            <div class="text">Jaunatnes starptautisko programmu aģentūra (JSPA)</div>
+            <div class="arrow">↗</div>
+          </div>
+        </div>
+      </a>
+
+
+
+
+      <a class="card-link" href="https://www.youtube.com/watch?v=_OxOdnfx6cg" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="content">
+            <div class="text">"ON THE WAY HOME" - a film by Liana Sargsyan</div>
+            <div class="arrow">↗</div>
+          </div>
+        </div>
+      </a>
+
+
+      <a class="card-link" href="https://drive.google.com/file/d/16TRsp3SaE_kRdaa_6yET3x52WDzxPrbu/view" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="content">
+            <div class="text">Care for Youth Method book</div>
+            <div class="arrow">↗</div>
+          </div>
+        </div>
+      </a>
+
+
+      <a class="card-link" href="https://goalmovement.weebly.com" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="content">
+            <div class="text">GOAL Movement</div>
+            <div class="arrow">↗</div>
+          </div>
+        </div>
+      </a>
+
+
+      <a class="card-link" href="https://padlet.com/goalmovement/goal-movement-toolbox-padlet-4docf26iiaojhyfg" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="content">
+            <div class="text">GOAL Movement Toolbox Padlet</div>
+            <div class="arrow">↗</div>
+          </div>
+        </div>
+      </a>
+
+
+      <a class="card-link" href="https://padlet.com/alumnireact/erasmus-adventures-at-rysta-g-rd-qcximpklo93fx9ll" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="content">
+            <div class="text">Erasmus adventures at Rysta Gård</div>
+            <div class="arrow">↗</div>
+          </div>
+        </div>
+      </a>
+
+
+      <a class="card-link" href="https://www.paypal.com/donate/?hosted_button_id=B7EBULQTUCFBL" target="_blank" rel="noopener">
+        <div class="card">
+          <div class="content">
+            <div class="text">Donate to Biedrība UNTU</div>
+            <div class="arrow">↗</div>
+          </div>
+        </div>
+      </a>
+
+
+    </div>
+
+
+    <div class="socials">
+      <a class="social" href="mailto:projects@untu.ngo">Mail</a>
+      <a class="social" href="https://www.instagram.com/ngo_untu" target="_blank" rel="noopener">IG</a>
+      <a class="social" href="https://www.youtube.com/@ngo_untu" target="_blank" rel="noopener">YT</a>
+      <a class="social" href="https://www.tiktok.com/@ngo_untu" target="_blank" rel="noopener">TT</a>
+    </div>
+
+
+  </div>
+
+
+  <script>
+    const patterns = [
+      "url('https://res.cloudinary.com/da4ctmwz5/image/upload/v1768578420/abstraction_3-02_j3pbmt.jpg')",
+      "url('https://res.cloudinary.com/da4ctmwz5/image/upload/v1768578087/Abstraction_Set_1-04_bouan6.png')",
+      "url('https://res.cloudinary.com/da4ctmwz5/image/upload/v1768578086/Abstraction_Set_1-02_nv6kju.png')"
+    ];
+
+
+    const cards = document.querySelectorAll("#links .card");
+
+
+    cards.forEach((card, i) => {
+      card.style.setProperty("--card-bg", patterns[i % patterns.length]);
+      card.style.animationDelay = `${i * 0.05}s`;
+    });
+
+
+    cards.forEach(card => {
+      card.addEventListener("mousemove", e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+
+
+        card.style.setProperty("--mx", `${x}px`);
+        card.style.setProperty("--my", `${y}px`);
+
+
+        const rx = ((y / r.height) - 0.5) * -5;
+        const ry = ((x / r.width) - 0.5) * 5;
+
+
+        card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;
+      });
+
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+      });
+    });
+
+
+    let ticking = false;
+    function updateParallax(){
+      const y = window.scrollY || 0;
+      const bg = document.querySelector(".site-bg");
+      bg.style.transform = `translate3d(0, ${y * -0.04}px, 0)`;
+      ticking = false;
+    }
+
+
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    });
+  </script>
+</body>
+</html>
