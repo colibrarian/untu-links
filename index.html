@@ -1,565 +1,548 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>UNTU Links</title>
-
-
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-
-
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#090b10;
-      --text:#ffffff;
-      --muted:rgba(255,255,255,.72);
-      --card:rgba(255,255,255,.06);
-      --stroke:rgba(255,255,255,.14);
-      --shadow:0 20px 60px rgba(0,0,0,.45);
-      --shadowHover:0 24px 70px rgba(0,0,0,.58);
+    :root {
+      --bg: #07090e;
+      --surface: rgba(255,255,255,.055);
+      --surface-hover: rgba(255,255,255,.09);
+      --border: rgba(255,255,255,.10);
+      --border-hover: rgba(255,255,255,.20);
+      --text: #f0f2f7;
+      --muted: rgba(240,242,247,.50);
+      --accent: #c8d6ff;
+      --accent-dim: rgba(200,214,255,.12);
     }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    *{box-sizing:border-box}
-
-
-    html,body{
-      margin:0;
-      min-height:100%;
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
     }
 
+    a { color: inherit; text-decoration: none; }
 
-    body{
-      font-family:"Montserrat",sans-serif;
-      color:var(--text);
-      background:var(--bg);
-      overflow-x:hidden;
-      position:relative;
+    /* BG */
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
     }
-
-
-    a{
-      color:inherit;
-      text-decoration:none;
+    .bg-img {
+      position: absolute;
+      inset: -60px;
+      background-image: url("https://res.cloudinary.com/da4ctmwz5/image/upload/v1768578525/Space_pattern_epsv7v.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: blur(38px) brightness(.7) saturate(.9);
+      opacity: .35;
+      transform: scale(1.15);
+      animation: drift 28s ease-in-out infinite alternate;
     }
-
-
-    /* ===== GLOBAL BACKGROUND ===== */
-    .site-bg{
-      position:fixed;
-      inset:0;
-      z-index:-5;
-      overflow:hidden;
+    .bg-vignette {
+      position: absolute;
+      inset: 0;
       background:
-        radial-gradient(900px 700px at 15% 15%, rgba(255,255,255,.06), transparent 60%),
-        radial-gradient(700px 700px at 85% 10%, rgba(255,255,255,.04), transparent 58%),
-        linear-gradient(180deg, rgba(8,10,14,.72), rgba(8,10,14,.84));
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,214,255,.06) 0%, transparent 65%),
+        linear-gradient(180deg, rgba(7,9,14,.55) 0%, rgba(7,9,14,.82) 100%);
+    }
+    @keyframes drift {
+      from { transform: scale(1.15) translate(-16px, -12px); }
+      to   { transform: scale(1.22) translate(16px, 12px); }
     }
 
-
-    .site-bg::before{
-      content:"";
-      position:absolute;
-      inset:-260px;
-      background-image:url("https://res.cloudinary.com/da4ctmwz5/image/upload/v1768578525/Space_pattern_epsv7v.jpg");
-      background-size:cover;
-      background-position:center;
-      filter:blur(34px) saturate(1.02) brightness(.9);
-      opacity:.46;
-      transform:translate3d(0,0,0) scale(1.18);
-      animation:bgFloat 22s ease-in-out infinite alternate;
-      will-change:transform;
+    /* LAYOUT */
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(520px, calc(100% - 24px));
+      margin: 0 auto;
+      padding: 24px 0 72px;
     }
 
-
-    .site-bg::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(180deg, rgba(8,10,14,.28), rgba(8,10,14,.5)),
-        radial-gradient(1200px 900px at 50% -10%, rgba(255,255,255,.05), transparent 60%);
-      pointer-events:none;
+    /* HEADER */
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .logo {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 18px;
+    }
+    .brand {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .tagline {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.55;
     }
 
-
-    @keyframes bgFloat{
-      0%{
-        transform:translate3d(-24px,-18px,0) scale(1.18);
-      }
-      100%{
-        transform:translate3d(24px,18px,0) scale(1.24);
-      }
+    /* EVENT CARD */
+    .event-card {
+      display: block;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      overflow: hidden;
+      transition: border-color .2s, background .2s, transform .2s;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: rise .5s ease forwards;
+    }
+    .event-card:hover {
+      border-color: var(--border-hover);
+      background: var(--surface-hover);
+      transform: translateY(-2px) !important;
+    }
+    .event-img-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+    .event-img-wrap img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .event-card:hover .event-img-wrap img {
+      transform: scale(1.03);
+    }
+    .event-body {
+      padding: 16px 18px 18px;
+    }
+    .event-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(200,214,255,.2);
+      border-radius: 6px;
+      padding: 3px 9px;
+      margin-bottom: 10px;
+    }
+    .event-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+    .event-cta {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: .02em;
     }
 
-
-    /* ===== LAYOUT ===== */
-    .wrapper{
-      width:min(540px, calc(100% - 28px));
-      margin:0 auto;
-      padding:26px 0 60px;
-      position:relative;
-      z-index:2;
+    /* HERO */
+    .hero {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 36px;
+      background: var(--surface);
+    }
+    .hero img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
     }
 
-
-    /* ===== HEADER ===== */
-    .header{
-      text-align:center;
-      margin-bottom:20px;
+    /* SECTION */
+    .section {
+      margin-bottom: 28px;
+    }
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 2px 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 10px;
     }
 
-
-    .logo{
-      width:84px;
-      height:auto;
-      display:block;
-      margin:0 auto 14px;
-      filter:drop-shadow(0 10px 24px rgba(0,0,0,.35));
+    /* LINK CARD */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-
-    .title{
-      font-size:20px;
-      font-weight:900;
-      letter-spacing:.02em;
-      margin-bottom:8px;
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: rise .5s ease forwards;
+    }
+    .link-item:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-1px) !important;
+    }
+    .link-item:active {
+      transform: scale(.99) !important;
     }
 
-
-    .subtitle{
-      font-size:12px;
-      line-height:1.6;
-      color:var(--muted);
+    .link-icon {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(200,214,255,.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      line-height: 1;
     }
 
-
-    /* ===== HERO ===== */
-    .hero{
-      position:relative;
-      border-radius:28px;
-      overflow:hidden;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.05);
-      box-shadow:var(--shadow);
-      margin-bottom:18px;
-      backdrop-filter:blur(10px);
+    .link-text {
+      flex: 1;
+      min-width: 0;
+    }
+    .link-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .link-sub {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-
-.hero img{
-  display:block;
-  width:100%;
-  height:auto;
-  object-fit:contain; 
-}
-
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(180deg, rgba(8,10,14,.08), rgba(8,10,14,.38)),
-        radial-gradient(700px 300px at 50% 0%, rgba(255,255,255,.08), transparent 60%);
-      pointer-events:none;
+    .link-arrow {
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--muted);
+      transition: color .2s, border-color .2s;
+    }
+    .link-item:hover .link-arrow {
+      color: var(--accent);
+      border-color: rgba(200,214,255,.3);
     }
 
-
-    /* ===== LINKS ===== */
-    .links{
-      display:grid;
-      gap:14px;
+    /* SOCIALS */
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .social-btn {
+      height: 42px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: rgba(240,242,247,.80);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      transition: background .2s, border-color .2s, transform .2s, color .2s;
+      backdrop-filter: blur(12px);
+    }
+    .social-btn:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+    .social-btn .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: .6;
     }
 
-
-    .card-link{
-      display:block;
-      perspective:900px;
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 11px;
+      color: rgba(240,242,247,.22);
+      letter-spacing: .03em;
     }
 
-
-    .card{
-      position:relative;
-      overflow:hidden;
-      border-radius:22px;
-      border:1px solid var(--stroke);
-      background:var(--card);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-      box-shadow:var(--shadow);
-      transform:translateY(18px);
-      opacity:0;
-      animation:fadeUp .65s ease forwards;
-      transition:
-        transform .28s ease,
-        box-shadow .28s ease,
-        border-color .28s ease;
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
     }
 
-
-    .card:hover{
-      box-shadow:var(--shadowHover);
-      border-color:rgba(255,255,255,.22);
-    }
-
-
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-image:var(--card-bg);
-      background-size:cover;
-      background-position:center;
-      opacity:.26;
-      filter:saturate(1.04) contrast(1.02);
-      transform:scale(1.04);
-    }
-
-
-    .card::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(
-          340px circle at var(--mx,50%) var(--my,50%),
-          rgba(255,255,255,.14),
-          transparent 42%
-        ),
-        linear-gradient(180deg, rgba(8,10,14,.18), rgba(8,10,14,.34));
-      opacity:.96;
-      pointer-events:none;
-    }
-
-
-    .content{
-      position:relative;
-      z-index:2;
-      padding:18px 18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-
-
-    .text{
-      font-size:14px;
-      line-height:1.45;
-      font-weight:700;
-      color:rgba(255,255,255,.96);
-    }
-
-
-    .arrow{
-      flex:0 0 auto;
-      width:34px;
-      height:34px;
-      border-radius:999px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.05);
-      color:rgba(255,255,255,.92);
-      font-size:14px;
-    }
-
-
-    /* ===== SOCIALS ===== */
-    .socials{
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      margin-top:22px;
-      flex-wrap:wrap;
-    }
-
-
-    .social{
-      min-width:46px;
-      height:46px;
-      padding:0 14px;
-      border-radius:14px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.06);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:13px;
-      font-weight:700;
-      color:rgba(255,255,255,.92);
-      backdrop-filter:blur(12px);
-      transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
-      box-shadow:0 14px 34px rgba(0,0,0,.25);
-    }
-
-
-    .social:hover{
-      transform:translateY(-2px);
-      border-color:rgba(255,255,255,.22);
-      box-shadow:0 18px 40px rgba(0,0,0,.35);
-    }
-
-
-    @keyframes fadeUp{
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-
-    @media (max-width:640px){
-      .wrapper{
-        width:min(540px, calc(100% - 20px));
-        padding-top:20px;
-      }
-
-
-      .content{
-        padding:16px;
-      }
-
-
-      .text{
-        font-size:13.5px;
-      }
+    @media (max-width: 480px) {
+      .page { padding: 24px 0 60px; }
+      .link-title { font-size: 13.5px; }
+      .brand { font-size: 20px; }
     }
   </style>
 </head>
 <body>
 
+<div class="bg">
+  <div class="bg-img"></div>
+  <div class="bg-vignette"></div>
+</div>
 
-  <div class="site-bg"></div>
+<div class="page">
 
-
-  <div class="wrapper">
-
-
-    <div class="header">
-      <img class="logo" src="https://res.cloudinary.com/da4ctmwz5/image/upload/v1768590482/UNTU_logo_png_eleuvz.png" alt="UNTU logo">
-      <div class="title">UNTU Links</div>
-      <div class="subtitle">
-        Non-governmental organisation UNTU
-        
-      </div>
-    </div>
-
-
-    <div class="hero">
-      <img src="https://res.cloudinary.com/da4ctmwz5/image/upload/v1771764958/untu_dragon_og_mc3s20.png" alt="UNTU main image">
-    </div>
-
-
-    <div class="links" id="links">
-
-
-      <a class="card-link" href="https://untu.ngo" target="_blank" rel="noopener">
-        <div class="card">
-          <div class="content">
-            <div class="text">UNTU Website</div>
-            <div class="arrow">↗</div>
-          </div>
-        </div>
-      </a>
-
-
-      <a class="card-link" href="https://www.youtube.com/@untuwellnessdailychallenge" target="_blank" rel="noopener">
-        <div class="card">
-          <div class="content">
-            <div class="text">UNTU Daily Wellness Challenge Movement YouTube channel</div>
-            <div class="arrow">↗</div>
-          </div>
-        </div>
-      </a>
-
-
-      <a class="card-link" href="https://youtube.com/playlist?list=PLD_bCNhFJdl7CGHa0XKIW1ezgnT-ByFFt&si=xahL0oPi60X4c2Rf" target="_blank" rel="noopener">
-        <div class="card">
-          <div class="content">
-            <div class="text">Think Critically Podcast</div>
-            <div class="arrow">↗</div>
-          </div>
-        </div>
-      </a>
-
-
-      <a class="card-link" href="https://project-asset.eu" target="_blank" rel="noopener">
-        <div class="card">
-          <div class="content">
-            <div class="text">Asset Project Website</div>
-            <div class="arrow">↗</div>
-          </div>
-        </div>
-      </a>
-
-
-      <a class="card-link" href="https://www.lm.gov.lv/en/media/1339/download" target="_blank" rel="noopener">
-        <div class="card">
-          <div class="content">
-            <div class="text">Ieteikumi ar dzimumu saistītas vardarbības novēršanai un tās risku pārvaldībai</div>
-            <div class="arrow">↗</div>
-          </div>
-        </div>
-      </a>
-
-
-      <a class="card-link" href="https://webgate.ec.europa.eu/erasmus-esc/index/" target="_blank" rel="noopener">
-        <div class="card">
-          <div class="content">
-            <div class="text">Erasmus+ and European Solidarity Corps</div>
-            <div class="arrow">↗</div>
-          </div>
-        </div>
-      </a>
-
-
-      <a class="card-link" href="https://jaunatne.gov.lv" target="_blank" rel="noopener">
-        <div class="card">
-          <div class="content">
-            <div class="text">Jaunatnes starptautisko programmu aģentūra (JSPA)</div>
-            <div class="arrow">↗</div>
-          </div>
-        </div>
-      </a>
-
-
-
-
-      <a class="card-link" href="https://www.youtube.com/watch?v=_OxOdnfx6cg" target="_blank" rel="noopener">
-        <div class="card">
-          <div class="content">
-            <div class="text">"ON THE WAY HOME" - a film by Liana Sargsyan</div>
-            <div class="arrow">↗</div>
-          </div>
-        </div>
-      </a>
-
-
-      <a class="card-link" href="https://drive.google.com/file/d/16TRsp3SaE_kRdaa_6yET3x52WDzxPrbu/view" target="_blank" rel="noopener">
-        <div class="card">
-          <div class="content">
-            <div class="text">Care for Youth Method book</div>
-            <div class="arrow">↗</div>
-          </div>
-        </div>
-      </a>
-
-
-      <a class="card-link" href="https://goalmovement.weebly.com" target="_blank" rel="noopener">
-        <div class="card">
-          <div class="content">
-            <div class="text">GOAL Movement</div>
-            <div class="arrow">↗</div>
-          </div>
-        </div>
-      </a>
-
-
-      <a class="card-link" href="https://padlet.com/goalmovement/goal-movement-toolbox-padlet-4docf26iiaojhyfg" target="_blank" rel="noopener">
-        <div class="card">
-          <div class="content">
-            <div class="text">GOAL Movement Toolbox Padlet</div>
-            <div class="arrow">↗</div>
-          </div>
-        </div>
-      </a>
-
-
-      <a class="card-link" href="https://padlet.com/alumnireact/erasmus-adventures-at-rysta-g-rd-qcximpklo93fx9ll" target="_blank" rel="noopener">
-        <div class="card">
-          <div class="content">
-            <div class="text">Erasmus adventures at Rysta Gård</div>
-            <div class="arrow">↗</div>
-          </div>
-        </div>
-      </a>
-
-
-      <a class="card-link" href="https://www.paypal.com/donate/?hosted_button_id=B7EBULQTUCFBL" target="_blank" rel="noopener">
-        <div class="card">
-          <div class="content">
-            <div class="text">Donate to Biedrība UNTU</div>
-            <div class="arrow">↗</div>
-          </div>
-        </div>
-      </a>
-
-
-    </div>
-
-
-    <div class="socials">
-      <a class="social" href="mailto:projects@untu.ngo">Mail</a>
-      <a class="social" href="https://www.instagram.com/ngo_untu" target="_blank" rel="noopener">IG</a>
-      <a class="social" href="https://www.youtube.com/@ngo_untu" target="_blank" rel="noopener">YT</a>
-      <a class="social" href="https://www.tiktok.com/@ngo_untu" target="_blank" rel="noopener">TT</a>
-    </div>
-
-
+  <div class="hero">
+    <img src="https://res.cloudinary.com/da4ctmwz5/image/upload/v1771764958/untu_dragon_og_mc3s20.png" alt="UNTU">
   </div>
 
+  <!-- EVENTS -->
+  <div class="section">
+    <div class="section-label">Current Events</div>
+    <a class="event-card" href="https://docs.google.com/forms/d/e/1FAIpQLScyo9Xe-BRtPdJqUKXWuJ0AkNEC6VzYTHT17ihq7sQSICFVCw/viewform" target="_blank" rel="noopener">
+      <div class="event-img-wrap">
+        <img src="https://ik.imagekit.io/erewhile/Untu/adv.jpg" alt="Adventure Through Seasons">
+      </div>
+      <div class="event-body">
+        <div class="event-badge">Apply Now</div>
+        <div class="event-title">Adventure Through Seasons: Exchanging Tools, Approaches, and Best Practices in Outdoor Education for Youth Work</div>
+        <div class="event-cta">Open Application Form ↗</div>
+      </div>
+    </a>
+  </div>
 
-  <script>
-    const patterns = [
-      "url('https://res.cloudinary.com/da4ctmwz5/image/upload/v1768578420/abstraction_3-02_j3pbmt.jpg')",
-      "url('https://res.cloudinary.com/da4ctmwz5/image/upload/v1768578087/Abstraction_Set_1-04_bouan6.png')",
-      "url('https://res.cloudinary.com/da4ctmwz5/image/upload/v1768578086/Abstraction_Set_1-02_nv6kju.png')"
-    ];
+  <!-- UNTU -->
+  <div class="section">
+    <div class="section-label">Organisation</div>
+    <div class="links" id="grp-org">
+      <a class="link-item" href="https://untu.ngo" target="_blank" rel="noopener">
+        <div class="link-icon">🌐</div>
+        <div class="link-text">
+          <div class="link-title">UNTU Website</div>
+          <div class="link-sub">untu.ngo</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+      <a class="link-item" href="mailto:projects@untu.ngo">
+        <div class="link-icon">✉️</div>
+        <div class="link-text">
+          <div class="link-title">Contact Us</div>
+          <div class="link-sub">projects@untu.ngo</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+      <a class="link-item" href="https://www.paypal.com/donate/?hosted_button_id=B7EBULQTUCFBL" target="_blank" rel="noopener">
+        <div class="link-icon">💛</div>
+        <div class="link-text">
+          <div class="link-title">Donate to Biedrība UNTU</div>
+          <div class="link-sub">Support our work via PayPal</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+    </div>
+  </div>
 
+  <!-- CONTENT -->
+  <div class="section">
+    <div class="section-label">Content</div>
+    <div class="links" id="grp-content">
+      <a class="link-item" href="https://www.youtube.com/@untuwellnessdailychallenge" target="_blank" rel="noopener">
+        <div class="link-icon">▶️</div>
+        <div class="link-text">
+          <div class="link-title">UNTU Daily Wellness Challenge</div>
+          <div class="link-sub">YouTube Channel</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+      <a class="link-item" href="https://youtube.com/playlist?list=PLD_bCNhFJdl7CGHa0XKIW1ezgnT-ByFFt&si=xahL0oPi60X4c2Rf" target="_blank" rel="noopener">
+        <div class="link-icon">🎙️</div>
+        <div class="link-text">
+          <div class="link-title">Think Critically Podcast</div>
+          <div class="link-sub">YouTube Playlist</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+      <a class="link-item" href="https://www.youtube.com/watch?v=_OxOdnfx6cg" target="_blank" rel="noopener">
+        <div class="link-icon">🎬</div>
+        <div class="link-text">
+          <div class="link-title">"On the Way Home"</div>
+          <div class="link-sub">A film by Liana Sargsyan</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+    </div>
+  </div>
 
-    const cards = document.querySelectorAll("#links .card");
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="section-label">Projects & Resources</div>
+    <div class="links" id="grp-projects">
+      <!-- Asset Project hidden temporarily -->
+      <!-- <a class="link-item" href="https://project-asset.eu" target="_blank" rel="noopener">
+        <div class="link-icon">📂</div>
+        <div class="link-text">
+          <div class="link-title">Asset Project</div>
+          <div class="link-sub">project-asset.eu</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a> -->
+      <a class="link-item" href="https://goalmovement.weebly.com" target="_blank" rel="noopener">
+        <div class="link-icon">🎯</div>
+        <div class="link-text">
+          <div class="link-title">GOAL Movement</div>
+          <div class="link-sub">goalmovement.weebly.com</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+      <a class="link-item" href="https://padlet.com/goalmovement/goal-movement-toolbox-padlet-4docf26iiaojhyfg" target="_blank" rel="noopener">
+        <div class="link-icon">🧰</div>
+        <div class="link-text">
+          <div class="link-title">GOAL Movement Toolbox</div>
+          <div class="link-sub">Padlet</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+      <a class="link-item" href="https://drive.google.com/file/d/16TRsp3SaE_kRdaa_6yET3x52WDzxPrbu/view" target="_blank" rel="noopener">
+        <div class="link-icon">📖</div>
+        <div class="link-text">
+          <div class="link-title">Care for Youth Method Book</div>
+          <div class="link-sub">Google Drive PDF</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+      <a class="link-item" href="https://padlet.com/alumnireact/erasmus-adventures-at-rysta-g-rd-qcximpklo93fx9ll" target="_blank" rel="noopener">
+        <div class="link-icon">🌿</div>
+        <div class="link-text">
+          <div class="link-title">Erasmus Adventures at Rysta Gård</div>
+          <div class="link-sub">Padlet</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+    </div>
+  </div>
 
+  <!-- PARTNERS -->
+  <div class="section">
+    <div class="section-label">Partners & Programmes</div>
+    <div class="links" id="grp-partners">
+      <a class="link-item" href="https://webgate.ec.europa.eu/erasmus-esc/index/" target="_blank" rel="noopener">
+        <div class="link-icon">🇪🇺</div>
+        <div class="link-text">
+          <div class="link-title">Erasmus+ and European Solidarity Corps</div>
+          <div class="link-sub">European Commission</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+      <a class="link-item" href="https://jaunatne.gov.lv" target="_blank" rel="noopener">
+        <div class="link-icon">🏛️</div>
+        <div class="link-text">
+          <div class="link-title">JSPA</div>
+          <div class="link-sub">Jaunatnes starptautisko programmu aģentūra</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+      <a class="link-item" href="https://www.lm.gov.lv/en/media/1339/download" target="_blank" rel="noopener">
+        <div class="link-icon">📄</div>
+        <div class="link-text">
+          <div class="link-title">Ieteikumi vardarbības novēršanai</div>
+          <div class="link-sub">Labklājības ministrija · PDF</div>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+    </div>
+  </div>
 
-    cards.forEach((card, i) => {
-      card.style.setProperty("--card-bg", patterns[i % patterns.length]);
-      card.style.animationDelay = `${i * 0.05}s`;
-    });
+  <!-- SOCIALS -->
+  <div class="socials">
+    <a class="social-btn" href="https://www.instagram.com/ngo_untu" target="_blank" rel="noopener">
+      <span class="dot"></span>Instagram
+    </a>
+    <a class="social-btn" href="https://www.youtube.com/@ngo_untu" target="_blank" rel="noopener">
+      <span class="dot"></span>YouTube
+    </a>
+    <a class="social-btn" href="https://www.tiktok.com/@ngo_untu" target="_blank" rel="noopener">
+      <span class="dot"></span>TikTok
+    </a>
+    <a class="social-btn" href="mailto:projects@untu.ngo">
+      <span class="dot"></span>Email
+    </a>
+  </div>
 
+  <div class="footer">© UNTU NGO · untu.ngo</div>
 
-    cards.forEach(card => {
-      card.addEventListener("mousemove", e => {
-        const r = card.getBoundingClientRect();
-        const x = e.clientX - r.left;
-        const y = e.clientY - r.top;
+</div>
 
+<script>
+  const allItems = document.querySelectorAll('.link-item');
+  allItems.forEach((el, i) => {
+    el.style.animationDelay = `${i * 0.04}s`;
+  });
 
-        card.style.setProperty("--mx", `${x}px`);
-        card.style.setProperty("--my", `${y}px`);
-
-
-        const rx = ((y / r.height) - 0.5) * -5;
-        const ry = ((x / r.width) - 0.5) * 5;
-
-
-        card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        document.querySelector('.bg-img').style.transform =
+          `scale(1.15) translate(${-16 + y * 0.01}px, ${-12 + y * -0.025}px)`;
+        ticking = false;
       });
-
-
-      card.addEventListener("mouseleave", () => {
-        card.style.transform = "";
-      });
-    });
-
-
-    let ticking = false;
-    function updateParallax(){
-      const y = window.scrollY || 0;
-      const bg = document.querySelector(".site-bg");
-      bg.style.transform = `translate3d(0, ${y * -0.04}px, 0)`;
-      ticking = false;
+      ticking = true;
     }
-
-
-    window.addEventListener("scroll", () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    });
-  </script>
+  });
+</script>
 </body>
 </html>
