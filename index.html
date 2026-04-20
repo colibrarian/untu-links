@@ -132,6 +132,38 @@
     .event-body {
       padding: 16px 18px 18px;
     }
+    .event-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 10px;
+    }
+    .event-tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .01em;
+      padding: 4px 10px;
+      border-radius: 7px;
+      gap: 4px;
+    }
+    .event-tag--date {
+      background: rgba(200,214,255,.10);
+      border: 1px solid rgba(200,214,255,.20);
+      color: var(--accent);
+    }
+    .event-tag--loc {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(240,242,247,.72);
+    }
+    .event-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 12px;
+    }
     .event-badge {
       display: inline-block;
       font-size: 10px;
@@ -143,7 +175,6 @@
       border: 1px solid rgba(200,214,255,.2);
       border-radius: 6px;
       padding: 3px 9px;
-      margin-bottom: 10px;
     }
     .event-title {
       font-size: 14px;
@@ -370,9 +401,15 @@
         <img src="https://ik.imagekit.io/erewhile/Untu/adv.jpg" alt="Adventure Through Seasons">
       </div>
       <div class="event-body">
-        <div class="event-badge">Apply Now</div>
+        <div class="event-meta">
+          <span class="event-tag event-tag--date">📅 23/06 – 01/07/26</span>
+          <span class="event-tag event-tag--loc">📍 Volda, Norway</span>
+        </div>
         <div class="event-title">Adventure Through Seasons: Exchanging Tools, Approaches, and Best Practices in Outdoor Education for Youth Work</div>
-        <div class="event-cta">Open Application Form ↗</div>
+        <div class="event-footer">
+          <div class="event-badge">Apply Now</div>
+          <div class="event-cta">Open Application Form ↗</div>
+        </div>
       </div>
     </a>
   </div>
