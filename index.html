@@ -119,6 +119,23 @@
       background: var(--surface-hover);
       transform: translateY(-2px) !important;
     }
+    .event-card.is-closed {
+      pointer-events: none;
+      cursor: default;
+    }
+    .event-card.is-closed .event-img-solo,
+    .event-card.is-closed .event-img-fg,
+    .event-card.is-closed .event-img-bg {
+      filter: grayscale(1) brightness(.55);
+    }
+    .event-card.is-closed .event-title {
+      color: rgba(240,242,247,.55);
+    }
+    .event-badge--closed {
+      color: rgba(240,242,247,.6) !important;
+      background: rgba(255,255,255,.06) !important;
+      border-color: rgba(255,255,255,.12) !important;
+    }
     .event-img-wrap {
       position: relative;
       width: 100%;
@@ -428,6 +445,7 @@
     <div class="section-label">Current Events</div>
     <div class="events-list">
 
+      <!-- Beyond Labels — набор завершён, скрыто
       <a class="event-card" href="https://docs.google.com/forms/d/e/1FAIpQLSdyNZviKTr-CvGmNfZkCQhbbuNmCw-3qQW5q7dNk2DhmCC5Pw/viewform" target="_blank" rel="noopener">
         <div class="event-img-wrap">
           <img class="event-img-solo" src="https://ik.imagekit.io/erewhile/Untu/Me%CC%8Cde%CC%8Cnec,%20Czech%20Republic.png" alt="Beyond Labels">
@@ -444,6 +462,7 @@
           </div>
         </div>
       </a>
+      -->
 
       <a class="event-card" href="https://docs.google.com/forms/d/e/1FAIpQLSdTvEY6NcC2NqxaUtsXWkuNuAkLhV-RCnCIo41k7uYM-oRdfw/viewform?pli=1" target="_blank" rel="noopener">
         <div class="event-img-wrap">
