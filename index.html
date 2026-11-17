@@ -530,6 +530,38 @@
     }
 
     /* FOOTER */
+    .site-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border-hover);
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .01em;
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+    .site-link:hover {
+      background: var(--surface-hover);
+      border-color: rgba(255,255,255,.35);
+      transform: translateY(-1px);
+    }
+    .site-link .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgb(var(--dot));
+      box-shadow: 0 0 8px rgba(var(--dot),.7);
+    }
+    .site-link-arrow { color: var(--muted); }
+    .site-link--footer { margin: 0 0 14px; }
+    .footer a:not(.site-link) { text-decoration: underline; text-underline-offset: 2px; }
     .footer {
       text-align: center;
       margin-top: 32px;
@@ -563,6 +595,7 @@
     <img class="logo" src="https://ik.imagekit.io/xshkpkf2i/Untu/logo%20untu.png" alt="UNTU">
     <div class="brand">UNTU Links</div>
     <div class="tagline">Non-governmental organisation UNTU</div>
+    <a class="site-link" href="https://untu.ngo" target="_blank" rel="noopener"><span class="dot"></span>Visit untu.ngo <span class="site-link-arrow">↗</span></a>
   </div>
 
   <!-- EVENTS -->
@@ -870,7 +903,10 @@
     </a>
   </div>
 
-  <div class="footer">© UNTU NGO · untu.ngo</div>
+  <div class="footer">
+    <a class="site-link site-link--footer" href="https://untu.ngo" target="_blank" rel="noopener"><span class="dot"></span>Visit untu.ngo <span class="site-link-arrow">↗</span></a>
+    <div>© UNTU NGO · <a href="https://untu.ngo" target="_blank" rel="noopener">untu.ngo</a></div>
+  </div>
 
 </div>
 
