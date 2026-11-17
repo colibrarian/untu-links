@@ -580,6 +580,11 @@
       .brand { font-size: 20px; }
     }
       :root{--c:255,255,255}
+
+    .link-title { white-space: normal; overflow: visible; }
+    .link-sub { white-space: normal; overflow: visible; }
+    .link-tag { flex:0 0 auto; font-size:9.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); padding:4px 8px; border:1px solid var(--border); border-radius:6px; }
+    .link-item:hover .link-tag { color: var(--text); border-color: var(--border-hover); }
   </style>
 </head>
 <body>
@@ -595,7 +600,7 @@
     <img class="logo" src="https://ik.imagekit.io/xshkpkf2i/Untu/logo%20untu.png" alt="UNTU">
     <div class="brand">UNTU Links</div>
     <div class="tagline">Non-governmental organisation UNTU</div>
-    <a class="site-link" href="https://untu.ngo" target="_blank" rel="noopener"><span class="dot"></span>Visit untu.ngo <span class="site-link-arrow">↗</span></a>
+    <a class="site-link" href="https://untu.ngo" target="_blank" rel="noopener"><span class="dot"></span>Visit untu.ngo <span class="site-link-arrow"></span></a>
   </div>
 
   <!-- EVENTS -->
@@ -616,7 +621,7 @@
           <div class="event-title">Application form for participants of the Youth Exchange "Beyond Labels"</div>
           <div class="event-footer">
             <div class="event-badge">Apply Now</div>
-            <div class="event-cta">Open Application Form ↗</div>
+            <div class="event-cta">Open Application Form</div>
           </div>
         </div>
       </a>
@@ -635,7 +640,7 @@
           <div class="event-title">From Nature to Action — Preparatory Visit &amp; Youth Exchange</div>
           <div class="event-footer">
             <div class="event-badge">Apply Now</div>
-            <div class="event-cta">Open Application Form ↗</div>
+            <div class="event-cta">Open Application Form</div>
           </div>
         </div>
       </a>
@@ -657,8 +662,8 @@
           <div class="event-note">The training is over. Partner teams from 6 countries now run local activities at home. Slides, games and guides are open to everyone.</div>
           <div class="event-footer event-footer--wrap">
             <div class="event-actions">
-              <a class="event-cta event-cta--btn" href="https://untu.ngo/projects/fts-library" target="_blank" rel="noopener">Open materials ↗</a>
-              <a class="event-cta event-cta--btn" href="https://untu.ngo/projects/fts" target="_blank" rel="noopener">About the project ↗</a>
+              <a class="event-cta event-cta--btn" href="https://untu.ngo/projects/fts-library" target="_blank" rel="noopener">Open materials</a>
+              <a class="event-cta event-cta--btn" href="https://untu.ngo/projects/fts" target="_blank" rel="noopener">About the project</a>
             </div>
           </div>
         </div>
@@ -674,7 +679,7 @@
               <div class="link-title">On Air Together</div>
               <div class="link-sub">Roles and rules for talking on air</div>
             </div>
-            <div class="link-arrow">↗</div>
+            <div class="link-tag">Guide</div>
           </a>
           <a class="link-item" href="https://untu.ngo/projects/fts-audacity/" target="_blank" rel="noopener">
             <div class="link-icon">🎧</div>
@@ -682,7 +687,7 @@
               <div class="link-title">Podcast Editing in Audacity</div>
               <div class="link-sub">Cut, clean and export your audio</div>
             </div>
-            <div class="link-arrow">↗</div>
+            <div class="link-tag">Slides</div>
           </a>
           <a class="link-item" href="https://untu.ngo/projects/fts-bias-map" target="_blank" rel="noopener">
             <div class="link-icon">🧠</div>
@@ -690,7 +695,7 @@
               <div class="link-title">Cognitive Bias Map</div>
               <div class="link-sub">40 biases, ranked by evidence</div>
             </div>
-            <div class="link-arrow">↗</div>
+            <div class="link-tag">Map</div>
           </a>
           <a class="link-item" href="https://untu.ngo/projects/fts-experience-first/" target="_blank" rel="noopener">
             <div class="link-icon">🌱</div>
@@ -698,7 +703,7 @@
               <div class="link-title">Experience First</div>
               <div class="link-sub">How we teach young people</div>
             </div>
-            <div class="link-arrow">↗</div>
+            <div class="link-tag">Slides</div>
           </a>
           <a class="link-item" href="https://untu.ngo/projects/fts-library" target="_blank" rel="noopener">
             <div class="link-icon">📚</div>
@@ -706,7 +711,7 @@
               <div class="link-title">All Materials</div>
               <div class="link-sub">FTS Library · slides, games and guides</div>
             </div>
-            <div class="link-arrow">↗</div>
+            <div class="link-tag">Library</div>
           </a>
         </div>
       </div>
@@ -726,7 +731,7 @@
           <div class="link-title">UNTU Website</div>
           <div class="link-sub">untu.ngo</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">Site</div>
       </a>
       <a class="link-item" href="mailto:projects@untu.ngo">
         <div class="link-icon">✉️</div>
@@ -734,7 +739,7 @@
           <div class="link-title">Contact Us</div>
           <div class="link-sub">projects@untu.ngo</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">Email</div>
       </a>
       <a class="link-item" href="https://www.paypal.com/donate/?hosted_button_id=B7EBULQTUCFBL" target="_blank" rel="noopener">
         <div class="link-icon">💛</div>
@@ -742,7 +747,7 @@
           <div class="link-title">Donate to Biedrība UNTU</div>
           <div class="link-sub">Support our work via PayPal</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">PayPal</div>
       </a>
     </div>
   </div>
@@ -757,7 +762,7 @@
           <div class="link-title">UNTU Daily Wellness Challenge</div>
           <div class="link-sub">YouTube Channel</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">YouTube</div>
       </a>
       <a class="link-item" href="https://youtube.com/playlist?list=PLD_bCNhFJdl7CGHa0XKIW1ezgnT-ByFFt&si=xahL0oPi60X4c2Rf" target="_blank" rel="noopener">
         <div class="link-icon link-icon--img"><img src="https://ik.imagekit.io/erewhile/Untu/think%20critically.png" alt=""></div>
@@ -765,7 +770,7 @@
           <div class="link-title">Think Critically Podcast</div>
           <div class="link-sub">YouTube Playlist</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">YouTube</div>
       </a>
       <a class="link-item" href="https://www.youtube.com/watch?v=_OxOdnfx6cg" target="_blank" rel="noopener">
         <div class="link-icon link-icon--img"><img src="https://ik.imagekit.io/erewhile/Untu/movie.png" alt=""></div>
@@ -773,7 +778,7 @@
           <div class="link-title">"On the Way Home"</div>
           <div class="link-sub">A film by Liana Sargsyan</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">Film</div>
       </a>
 
       <div class="content-frame proj-dwcm">
@@ -785,7 +790,7 @@
               <div class="link-title">International Comparative Mapping Report</div>
               <div class="link-sub">Google Drive PDF</div>
             </div>
-            <div class="link-arrow">↗</div>
+            <div class="link-tag">PDF</div>
           </a>
           <a class="link-item" href="https://drive.google.com/file/d/1HMSqIzvAxaFwlRAHh0wJQYSrq-_Oezo5/view" target="_blank" rel="noopener">
             <div class="link-icon">🧰</div>
@@ -793,7 +798,7 @@
               <div class="link-title">DWCM Toolkit</div>
               <div class="link-sub">Google Drive PDF</div>
             </div>
-            <div class="link-arrow">↗</div>
+            <div class="link-tag">PDF</div>
           </a>
           <a class="link-item" href="https://drive.google.com/file/d/1QwL06e0kSPj1JYc855_U0o5ZczL4m2Bw/view" target="_blank" rel="noopener">
             <div class="link-icon">🍞</div>
@@ -801,7 +806,7 @@
               <div class="link-title">Freshly Baked Content Digital Toolkit</div>
               <div class="link-sub">Google Drive PDF</div>
             </div>
-            <div class="link-arrow">↗</div>
+            <div class="link-tag">PDF</div>
           </a>
         </div>
       </div>
@@ -819,7 +824,7 @@
           <div class="link-title">Asset Project</div>
           <div class="link-sub">project-asset.eu</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">Site</div>
       </a> -->
       <a class="link-item" href="https://goalmovement.weebly.com" target="_blank" rel="noopener">
         <div class="link-icon link-icon--img"><img src="https://ik.imagekit.io/erewhile/Untu/goal%20mvmnt.png" alt=""></div>
@@ -827,7 +832,7 @@
           <div class="link-title">GOAL Movement</div>
           <div class="link-sub">goalmovement.weebly.com</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">Site</div>
       </a>
       <a class="link-item" href="https://padlet.com/goalmovement/goal-movement-toolbox-padlet-4docf26iiaojhyfg" target="_blank" rel="noopener">
         <div class="link-icon link-icon--img"><img src="https://ik.imagekit.io/erewhile/Untu/goal%20toolbox.png" alt=""></div>
@@ -835,7 +840,7 @@
           <div class="link-title">GOAL Movement Toolbox</div>
           <div class="link-sub">Padlet</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">Padlet</div>
       </a>
       <a class="link-item" href="https://drive.google.com/file/d/16TRsp3SaE_kRdaa_6yET3x52WDzxPrbu/view" target="_blank" rel="noopener">
         <div class="link-icon link-icon--img"><img src="https://ik.imagekit.io/erewhile/Untu/care%20for%20youth%20method%20book.png" alt=""></div>
@@ -843,7 +848,7 @@
           <div class="link-title">Care for Youth Method Book</div>
           <div class="link-sub">Google Drive PDF</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">PDF</div>
       </a>
       <a class="link-item" href="https://padlet.com/alumnireact/erasmus-adventures-at-rysta-g-rd-qcximpklo93fx9ll" target="_blank" rel="noopener">
         <div class="link-icon link-icon--img"><img src="https://ik.imagekit.io/erewhile/Untu/Rysta%20gard.png" alt=""></div>
@@ -851,7 +856,7 @@
           <div class="link-title">Erasmus Adventures at Rysta Gård</div>
           <div class="link-sub">Padlet</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">Padlet</div>
       </a>
     </div>
   </div>
@@ -866,7 +871,7 @@
           <div class="link-title">Erasmus+ and European Solidarity Corps</div>
           <div class="link-sub">European Commission</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">EC</div>
       </a>
       <a class="link-item" href="https://jaunatne.gov.lv" target="_blank" rel="noopener">
         <div class="link-icon">🏛️</div>
@@ -874,7 +879,7 @@
           <div class="link-title">JSPA</div>
           <div class="link-sub">Jaunatnes starptautisko programmu aģentūra</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">Site</div>
       </a>
       <a class="link-item" href="https://www.lm.gov.lv/en/media/1339/download" target="_blank" rel="noopener">
         <div class="link-icon">📄</div>
@@ -882,7 +887,7 @@
           <div class="link-title">Ieteikumi vardarbības novēršanai</div>
           <div class="link-sub">Labklājības ministrija · PDF</div>
         </div>
-        <div class="link-arrow">↗</div>
+        <div class="link-tag">PDF</div>
       </a>
     </div>
   </div>
@@ -904,7 +909,7 @@
   </div>
 
   <div class="footer">
-    <a class="site-link site-link--footer" href="https://untu.ngo" target="_blank" rel="noopener"><span class="dot"></span>Visit untu.ngo <span class="site-link-arrow">↗</span></a>
+    <a class="site-link site-link--footer" href="https://untu.ngo" target="_blank" rel="noopener"><span class="dot"></span>Visit untu.ngo <span class="site-link-arrow"></span></a>
     <div>© UNTU NGO · <a href="https://untu.ngo" target="_blank" rel="noopener">untu.ngo</a></div>
   </div>
 
