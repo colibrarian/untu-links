@@ -7,15 +7,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #07090e;
+      --bg: #0b0d12;
       --surface: rgba(255,255,255,.055);
       --surface-hover: rgba(255,255,255,.09);
       --border: rgba(255,255,255,.10);
       --border-hover: rgba(255,255,255,.20);
       --text: #f0f2f7;
       --muted: rgba(240,242,247,.50);
-      --accent: #c8d6ff;
-      --accent-dim: rgba(200,214,255,.12);
+      --accent: #FFD233;
+      --accent-dim: rgba(255,210,51,.12);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,7 +43,7 @@
       background-image: url("https://res.cloudinary.com/da4ctmwz5/image/upload/v1768578525/Space_pattern_epsv7v.jpg");
       background-size: cover;
       background-position: center;
-      filter: blur(38px) brightness(.7) saturate(.9);
+      filter: blur(38px) brightness(.7) saturate(0);
       opacity: .35;
       transform: scale(1.15);
       animation: drift 28s ease-in-out infinite alternate;
@@ -52,7 +52,7 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,214,255,.06) 0%, transparent 65%),
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,210,51,.06) 0%, transparent 65%),
         linear-gradient(180deg, rgba(7,9,14,.55) 0%, rgba(7,9,14,.82) 100%);
     }
     @keyframes drift {
@@ -196,8 +196,8 @@
       gap: 4px;
     }
     .event-tag--date {
-      background: rgba(200,214,255,.10);
-      border: 1px solid rgba(200,214,255,.20);
+      background: rgba(255,210,51,.10);
+      border: 1px solid rgba(255,210,51,.20);
       color: var(--accent);
     }
     .event-tag--loc {
@@ -219,7 +219,7 @@
       text-transform: uppercase;
       color: var(--accent);
       background: var(--accent-dim);
-      border: 1px solid rgba(200,214,255,.2);
+      border: 1px solid rgba(255,210,51,.2);
       border-radius: 6px;
       padding: 3px 9px;
     }
@@ -246,7 +246,7 @@
       padding: 6px 12px;
       border-radius: 8px;
       background: var(--accent-dim);
-      border: 1px solid rgba(200,214,255,.25);
+      border: 1px solid rgba(255,210,51,.25);
       transition: background .2s, border-color .2s;
     }
     .event-img-badge {
@@ -260,7 +260,7 @@
       padding: 7px 13px 7px 11px;
       border-radius: 999px;
       background: rgba(7,9,14,.86);
-      border: 1px solid rgba(12,192,223,.6);
+      border: 1px solid rgba(255,210,51,.6);
       box-shadow: 0 6px 20px rgba(0,0,0,.35);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
@@ -274,8 +274,8 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #0cc0df;
-      box-shadow: 0 0 10px rgba(12,192,223,.9);
+      background: #FFD233;
+      box-shadow: 0 0 10px rgba(255,210,51,.9);
     }
     .content-frame--events {
       margin-top: 0;
@@ -296,12 +296,12 @@
       gap: 8px;
     }
     .event-actions .event-cta--btn:hover {
-      background: rgba(200,214,255,.22);
-      border-color: rgba(200,214,255,.45);
+      background: rgba(255,210,51,.22);
+      border-color: rgba(255,210,51,.45);
     }
     .event-card:hover .event-cta--btn {
-      background: rgba(200,214,255,.18);
-      border-color: rgba(200,214,255,.35);
+      background: rgba(255,210,51,.18);
+      border-color: rgba(255,210,51,.35);
     }
 
     /* HERO */
@@ -372,7 +372,7 @@
       height: 38px;
       border-radius: 10px;
       background: var(--accent-dim);
-      border: 1px solid rgba(200,214,255,.15);
+      border: 1px solid rgba(255,210,51,.15);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -429,7 +429,7 @@
     }
     .link-item:hover .link-arrow {
       color: var(--accent);
-      border-color: rgba(200,214,255,.3);
+      border-color: rgba(255,210,51,.3);
     }
 
     /* SOCIALS */
@@ -438,8 +438,8 @@
       margin-top: 10px;
       padding: 14px 14px 12px;
       border-radius: 16px;
-      border: 1.5px solid rgba(12,192,223,.45);
-      background: rgba(12,192,223,.06);
+      border: 1.5px solid rgba(255,210,51,.45);
+      background: rgba(255,210,51,.06);
     }
     .content-frame-label {
       display: flex;
@@ -449,37 +449,37 @@
       font-weight: 800;
       letter-spacing: .07em;
       text-transform: uppercase;
-      color: #0cc0df;
+      color: #FFD233;
       padding-bottom: 10px;
       margin-bottom: 10px;
-      border-bottom: 1px solid rgba(12,192,223,.25);
+      border-bottom: 1px solid rgba(255,210,51,.25);
     }
     .content-frame-label .dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #0cc0df;
-      box-shadow: 0 0 8px rgba(12,192,223,.7);
+      background: #FFD233;
+      box-shadow: 0 0 8px rgba(255,210,51,.7);
       flex: 0 0 auto;
     }
     .content-frame .links {
       gap: 8px;
     }
     .content-frame .link-item {
-      border-color: rgba(12,192,223,.18);
-      background: rgba(12,192,223,.045);
+      border-color: rgba(255,210,51,.18);
+      background: rgba(255,210,51,.045);
     }
     .content-frame .link-item:hover {
-      border-color: rgba(12,192,223,.4);
-      background: rgba(12,192,223,.10);
+      border-color: rgba(255,210,51,.4);
+      background: rgba(255,210,51,.10);
     }
     .content-frame .link-icon {
-      background: rgba(12,192,223,.14);
-      border-color: rgba(12,192,223,.3);
+      background: rgba(255,210,51,.14);
+      border-color: rgba(255,210,51,.3);
     }
     .content-frame .link-item:hover .link-arrow {
-      color: #0cc0df;
-      border-color: rgba(12,192,223,.4);
+      color: #FFD233;
+      border-color: rgba(255,210,51,.4);
     }
 
     .socials {
